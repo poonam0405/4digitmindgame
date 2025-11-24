@@ -18,8 +18,9 @@
     footer{margin-top:14px;color:var(--muted);font-size:13px}
     .hint{font-size:13px;color:var(--muted)}
     footer{text-align: right;}
-    .card-header{display: flex;justify-content: space-between;}
+    .card-header{display: flex;justify-content: space-between;align-items:center;}
     .user-name{border: none !important;text-align: right;max-width: 40%;}
 
     @media (max-width:520px){.controls{flex-direction:column}input[type="text"]{width:100%}}
+
 
