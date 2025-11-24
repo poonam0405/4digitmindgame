@@ -9,6 +9,17 @@
   const lastCorrect = document.getElementById('lastCorrect');
   const historyTbody = document.querySelector('#historyTable tbody');
   const revealBtn = document.getElementById('revealBtn');
+  const UserNameInput = document.getElementById('txtUserName');
+  const SectionInputRow = document.querySelector('.input-row');
+  const SectionGameStatus = document.querySelector('.status');
+  const SectionHistoryTable = document.querySelector('.history');
+
+  // setting values
+  UserNameInput.value = localStorage.getItem("4DigitUserName");
+  newBtn.style.display = "none";
+  SectionInputRow.style.display = "none";
+  SectionGameStatus.style.display = "none";
+  SectionHistoryTable.style.display = "none";
 
   let secret = null; // string of 4 digits
   let guesses = 0;
@@ -48,7 +59,10 @@
     revealBtn.textContent = 'Reveal';
     startBtn.textContent = 'Restart Game';
     guessInput.focus();
-    console.log('Secret (debug):', secret);
+    newBtn.style.display = "block";
+    SectionInputRow.style.display = "revert-layer";
+    SectionGameStatus.style.display = "revert-layer";
+    SectionHistoryTable.style.display = "revert-layer";
   }
 
   function validateGuess(g){
@@ -78,6 +92,9 @@
     tr.innerHTML = `<td>${n}</td><td>${guess}</td><td>${present}</td><td>${correct}</td>`;
     historyTbody.prepend(tr);
   }
+  UserNameInput.addEventListener('keyup',()=>{
+    localStorage.setItem("4DigitUserName",UserNameInput.value);
+  });
 
   startBtn.addEventListener('click', startGame);
   newBtn.addEventListener('click', ()=>{
@@ -108,6 +125,10 @@
 
   guessInput.addEventListener('keydown', (e)=>{
     if(e.key === 'Enter') submitBtn.click();
+  });
+
+  guessInput.addEventListener("input", () => {
+    guessInput.value = guessInput.value.replace(/[^0-9]/g, "");
   });
 
   revealBtn.addEventListener('click', ()=>{
