@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <link rel="stylesheet" href="style.css">
+  <title>4-Digit Mind Game</title>
+</head>
+<body>
+  <div class="wrap card">
+    <h1>4‑Digit Guess Game (no repeated digits — 0 allowed)</h1>
+
+    <div class="controls">
+      <button id="startBtn">Start Game</button>
+      <button id="newBtn" class="ghost">New Secret</button>
+      <div style="flex:1"></div>
+      <div class="pill">Guesses: <span id="guessCount">0</span></div>
+      <div class="pill">Wins: <span id="winsCount">0</span></div>
+    </div>
+
+    <div class="input-row">
+      <input id="guessInput" type="text" placeholder="Enter 4 digits (e.g. 2853)" maxlength="4" disabled />
+      <button id="submitBtn" disabled>Submit Guess</button>
+      <button id="revealBtn" class="ghost">Reveal</button>
+    </div>
+
+    <div class="status" style="margin-top:12px">
+      <div class="pill">Last Present: <span id="lastPresent">-</span></div>
+      <div class="pill">Last Correct: <span id="lastCorrect">-</span></div>
+      <div style="flex:1"></div>
+      <div class="hint">Tip: digits cannot repeat. Leading 0 allowed.</div>
+    </div>
+
+    <table class="history" id="historyTable">
+      <thead>
+        <tr><th>#</th><th>Guess</th><th>Present</th><th>Correct</th></tr>
+      </thead>
+      <tbody></tbody>
+    </table>
+
+    <footer>
+      This page is fully client-side. Your total wins are saved in your browser's localStorage.
+    </footer>
+  </div>
+
+<script src="script.js"></script>
+</body>
+</html>
