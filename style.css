@@ -19,5 +19,6 @@
     .hint{font-size:13px;color:var(--muted)}
     footer{text-align: right;}
     .card-header{display: flex;justify-content: space-between;}
-    .user-name{border: none !important;text-align: right;}
+    .user-name{border: none !important;text-align: right;max-width: 50%;}
+
     @media (max-width:520px){.controls{flex-direction:column}input[type="text"]{width:100%}}
